@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Phòng Thí Nghiệm & Học Tập Vật Lí 8</title>
+<style>
+:root{--bg:#f5f5f7;--sf:#fff;--tx:#1d1d1f;--mu:#6e6e73;--ln:#d2d2d7;--ac:#0071e3;--ac2:#e8f1fc;--ok:#1d8a3e;--bad:#c92a2a;--r:20px;--sh:0 1px 2px rgba(0,0,0,.04),0 8px 28px rgba(0,0,0,.06);
+--p1:#0a84ff;--p2:#ff9500;--p3:#8e5cf7;--p4:#e5484d;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Segoe UI',system-ui,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}body{margin:0;background:var(--bg);color:var(--tx);font-size:17px;line-height:1.55;letter-spacing:-.011em}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}button{font:inherit;color:inherit;cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid rgba(0,113,227,.45);outline-offset:2px}
+nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.78);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.08)}
+nav .wrap{display:flex;align-items:center;gap:6px;height:60px;overflow-x:auto;scrollbar-width:none}nav .wrap::-webkit-scrollbar{display:none}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;margin-right:auto;white-space:nowrap;border:0;background:none;padding:0}.brand svg{width:30px;height:30px}
+.nl{border:0;background:none;padding:8px 14px;border-radius:999px;color:var(--mu);font-weight:600;font-size:15px;white-space:nowrap;transition:background .2s,color .2s}.nl:hover{background:rgba(0,0,0,.05);color:var(--tx)}.nl.on{background:var(--tx);color:#fff}
+.seg{display:inline-flex;background:#e8e8ed;border-radius:999px;padding:3px;gap:2px;flex:none}.seg button{border:0;background:none;padding:7px 16px;border-radius:999px;font-weight:600;font-size:15px;color:var(--mu);white-space:nowrap;transition:background .25s cubic-bezier(.25,1,.5,1),color .2s,box-shadow .25s}.seg button.on{background:#fff;color:var(--tx);box-shadow:0 1px 4px rgba(0,0,0,.18)}
+.view{display:none;padding:34px 0 72px}.view.on{display:block;animation:vi .5s cubic-bezier(.25,1,.5,1) both}@keyframes vi{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:32px;align-items:center;padding:28px 0 10px}.kicker{font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ac)}
+h1{font-size:clamp(36px,5.6vw,68px);line-height:1.04;letter-spacing:-.03em;margin:8px 0 16px;font-weight:800}h2{font-size:clamp(28px,3.6vw,44px);letter-spacing:-.025em;margin:4px 0 8px;line-height:1.1}h3{margin:0 0 6px;font-size:20px;letter-spacing:-.02em}
+.lead{font-size:clamp(18px,2vw,22px);color:var(--mu);max-width:36em;margin:0 0 22px}.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{border:1px solid var(--ln);background:#fff;border-radius:999px;padding:10px 20px;font-weight:600;font-size:16px;transition:transform .18s cubic-bezier(.34,1.56,.64,1),box-shadow .2s,background .2s}.btn:hover{box-shadow:0 4px 14px rgba(0,0,0,.1)}.btn:active{transform:scale(.96)}.btn.primary{background:var(--ac);border-color:var(--ac);color:#fff}.btn.sm{padding:7px 14px;font-size:15px}
+.hero svg{width:100%;height:auto;border-radius:28px;background:linear-gradient(160deg,#fff,#eaf2fd);box-shadow:var(--sh)}
+.sech{margin:46px 0 18px;display:flex;align-items:end;justify-content:space-between;gap:12px;flex-wrap:wrap}.sech p{margin:0;color:var(--mu)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.card{text-align:left;background:var(--sf);border:1px solid rgba(0,0,0,.06);border-radius:var(--r);padding:22px;box-shadow:var(--sh);display:flex;flex-direction:column;gap:10px;transition:transform .3s cubic-bezier(.25,1,.5,1),box-shadow .3s}.card:hover{transform:translateY(-4px);box-shadow:0 14px 40px rgba(0,0,0,.12)}
+.card .ic{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 14%,#fff)}.card .ic svg{width:34px;height:34px;stroke:var(--c);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.card p{margin:0;color:var(--mu);font-size:15.5px}.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto;padding-top:6px}.chip{font-size:13px;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--ac2);color:var(--ac)}.chip.n{background:#f0e9fd;color:#6d3fd1}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;counter-reset:s}.steps div{background:#fff;border-radius:var(--r);padding:22px;box-shadow:var(--sh);counter-increment:s}.steps div::before{content:counter(s);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--tx);color:#fff;font-weight:700;margin-bottom:10px}.steps p{margin:0;color:var(--mu);font-size:15.5px}
+.vhead{display:flex;align-items:end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:18px}.vhead .lead{margin:0;font-size:18px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}.tab{border:1px solid var(--ln);background:#fff;border-radius:14px;padding:9px 16px;font-weight:600;font-size:15.5px;transition:all .2s}.tab.on{background:var(--c,var(--ac));border-color:var(--c,var(--ac));color:#fff}.tab[disabled]{cursor:default;color:#a1a1a6;background:transparent;border-style:dashed}.tab small{margin-left:6px;font-size:12px;font-weight:600;opacity:.8}
+.panel{background:var(--sf);border:1px solid rgba(0,0,0,.06);border-radius:var(--r);box-shadow:var(--sh)}
+.guide{margin-bottom:16px;padding:0}.guide>summary{cursor:pointer;list-style:none;padding:16px 20px;font-weight:700;display:flex;align-items:center;gap:10px}.guide>summary::-webkit-details-marker{display:none}.guide>summary::after{content:"";margin-left:auto;width:9px;height:9px;border-right:2px solid var(--mu);border-bottom:2px solid var(--mu);transform:rotate(45deg);transition:transform .25s}.guide[open]>summary::after{transform:rotate(-135deg)}
+.gb{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;padding:0 20px 20px}@media(max-width:860px){.gb,.hero{grid-template-columns:1fr}}
+.gb h5{margin:0 0 6px;font-size:13px;letter-spacing:.07em;text-transform:uppercase;color:var(--mu)}.gb p{margin:0 0 8px}
+.stp{margin:0;padding:0;list-style:none;display:grid;gap:6px}.stp li{display:flex;gap:10px;padding:9px 12px;border-radius:12px;background:#f5f5f7;color:var(--mu);transition:all .25s;cursor:pointer}.stp li b{flex:none;width:24px;height:24px;border-radius:50%;background:#d2d2d7;color:#fff;display:grid;place-items:center;font-size:13px}.stp li.on{background:var(--ac2);color:var(--tx)}.stp li.on b{background:var(--ac)}.stp li.done b{background:var(--ok)}
+.sn{display:flex;gap:8px;margin-top:10px}.qz{padding:14px 16px;border-radius:16px;background:#fff8e6;border:1px solid #f3dd9b}.ans{margin-top:8px;padding:8px 12px;border-radius:12px;background:#e7f6ec;color:#14602b}
+.lab{display:grid;grid-template-columns:1fr 340px;gap:16px}@media(max-width:980px){.lab{grid-template-columns:1fr}}
+.stage{padding:12px}.tools{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+canvas{width:100%;height:auto;display:block;border-radius:14px;background:radial-gradient(ellipse at 50% 20%,#fff,#eef2f8);touch-action:none}canvas.drag{cursor:grab}
+.note{margin:8px 4px 2px;color:var(--mu);font-size:14px}.side{padding:18px;display:flex;flex-direction:column;gap:12px}
+.row{display:grid;grid-template-columns:1fr auto;gap:2px 10px;font-size:15px}.row label{font-weight:600}.row output{color:var(--mu);font-variant-numeric:tabular-nums}.row input[type=range]{grid-column:1/3;width:100%;accent-color:var(--ac)}.row select{grid-column:1/3;font:inherit;padding:8px 10px;border-radius:12px;border:1px solid var(--ln);background:#fff}
+dl{margin:0;display:grid;grid-template-columns:1fr auto;gap:6px 12px;padding:12px 14px;border-radius:14px;background:#f5f5f7;font-size:15px}dt{color:var(--mu)}dd{margin:0;font-weight:700;text-align:right;font-variant-numeric:tabular-nums}
+.st{padding:10px 14px;border-radius:12px;font-weight:600;font-size:15px;background:#e7f6ec;color:#14602b}.st.bad{background:#fdecec;color:var(--bad)}.eqb{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px;color:var(--mu);white-space:pre-wrap;padding:10px 12px;border-radius:12px;border:1px dashed var(--ln)}
+.data{margin-top:16px;padding:16px 18px}.data table{width:100%;border-collapse:collapse;font-size:15px;font-variant-numeric:tabular-nums}.data th,.data td{padding:7px 10px;border-bottom:1px solid #ececf0;text-align:left;white-space:nowrap}.data th{color:var(--mu);font-weight:600}.hint{color:var(--mu);font-size:15px;margin:6px 0}
+.empty{padding:40px 24px;text-align:center;border-style:dashed;color:var(--mu)}.empty b{display:block;color:var(--tx);font-size:20px;margin-bottom:4px}
+footer{padding:30px 0 50px;color:var(--mu);font-size:14px;text-align:center}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style></head><body>
+<nav><div class="wrap"><button class="brand" data-v="home" aria-label="Trang chủ"><svg viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="9" fill="#1d1d1f"/><ellipse cx="16" cy="16" rx="11" ry="4.4" stroke="#fff" stroke-width="1.6"/><ellipse cx="16" cy="16" rx="11" ry="4.4" stroke="#fff" stroke-width="1.6" transform="rotate(60 16 16)"/><ellipse cx="16" cy="16" rx="11" ry="4.4" stroke="#fff" stroke-width="1.6" transform="rotate(120 16 16)"/><circle cx="16" cy="16" r="2.6" fill="#ff9500"/></svg>Vật Lí 8</button><span id="navl" style="display:contents"></span><div class="seg" id="gseg" aria-label="Chọn mức"><button data-lv="cb" class="on">Cơ bản</button><button data-lv="nc">Nâng cao</button></div></div></nav>
+
+<main>
+<section class="view on" id="v-home"><div class="wrap">
+ <div class="hero"><div><span class="kicker">Vật lí 8 · Chương trình GDPT 2018</span><h1>Phòng thí nghiệm ảo cho Vật lí lớp 8</h1><p class="lead">Tự tay kéo, chỉnh và quan sát. Mỗi thí nghiệm đi từ nhận biết cơ bản đến vận dụng cao, có hướng dẫn từng bước và thí nghiệm mẫu.</p>
+ <div class="cta"><button class="btn primary" data-v="p1">Bắt đầu khám phá</button><button class="btn" data-v="lib">Xem thư viện dụng cụ</button></div></div>
+ <svg viewBox="0 0 560 400" role="img" aria-label="Minh họa dụng cụ thí nghiệm"><defs><linearGradient id="hl" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#7cc4ff"/><stop offset="1" stop-color="#0a84ff"/></linearGradient><radialGradient id="hb" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffd60a" stop-opacity=".7"/><stop offset="1" stop-color="#ffd60a" stop-opacity="0"/></radialGradient></defs>
+  <rect x="30" y="340" width="500" height="10" rx="5" fill="#d2d2d7"/>
+  <path d="M70 120v200a14 14 0 0 0 14 14h74a14 14 0 0 0 14-14V120" fill="#fff" fill-opacity=".7" stroke="#8e8e93" stroke-width="3"/><path d="M71 210h100v110a14 14 0 0 1-14 14H85a14 14 0 0 1-14-14z" fill="url(#hl)" opacity=".75"/><g stroke="#8e8e93" stroke-width="2"><path d="M70 150h18M70 180h12M70 210h18M70 240h12M70 270h18M70 300h12"/></g><circle cx="120" cy="270" r="26" fill="#ff9500"/><circle cx="111" cy="260" r="8" fill="#fff" opacity=".5"/>
+  <path d="M230 340l60-60 60 60z" fill="#8e8e93"/><g transform="rotate(-9 290 270)"><rect x="190" y="262" width="200" height="14" rx="7" fill="#c9a36b"/><rect x="200" y="232" width="34" height="30" rx="4" fill="#0a84ff"/><rect x="346" y="240" width="26" height="22" rx="4" fill="#e5484d"/></g>
+  <circle cx="450" cy="120" r="70" fill="url(#hb)"/><path d="M432 168c-14-12-22-24-22-40a40 40 0 1 1 80 0c0 16-8 28-22 40z" fill="#fff" stroke="#8e8e93" stroke-width="3"/><path d="M438 150l6-18 6 10 6-10 6 18" fill="none" stroke="#ff9500" stroke-width="3" stroke-linecap="round"/><rect x="436" y="168" width="28" height="22" rx="4" fill="#8e8e93"/>
+  <rect x="478" y="230" width="22" height="110" rx="11" fill="#fff" stroke="#8e8e93" stroke-width="3"/><circle cx="489" cy="330" r="16" fill="#fff" stroke="#8e8e93" stroke-width="3"/><circle cx="489" cy="330" r="10" fill="#e5484d"/><rect x="485" y="268" width="8" height="62" rx="4" fill="#e5484d"/></svg></div>
+ <div class="sech"><div><h2>Chọn phân môn</h2><p>Bốn phân môn, mỗi phân môn có hai mức: Cơ bản và Nâng cao.</p></div></div>
+ <div class="cards" id="cards"></div>
+ <div class="sech"><div><h2>Lộ trình học</h2></div></div>
+ <div class="steps"><div><h3>Khám phá</h3><p>Bấm “Thí nghiệm mẫu” để xem hiện tượng, rồi tự kéo thả và chỉnh thông số.</p></div><div><h3>Làm theo hướng dẫn</h3><p>Đi qua từng bước, trả lời câu hỏi thử thách và ghi số liệu vào bảng.</p></div><div><h3>Vận dụng cao</h3><p>Chuyển sang mức Nâng cao với bài toán nhiều lớp chất lỏng, thanh có trọng lượng, mạch hỗn hợp.</p></div></div>
+</div></section>
+</main>
+<footer>Phòng Thí Nghiệm & Học Tập Vật Lí 8 · Khung ứng dụng, có thể lắp thêm phân môn và chủ đề.</footer>
+
+<script>
+(()=>{'use strict';
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const F=(x,n=1)=>(+x).toLocaleString('vi-VN',{maximumFractionDigits:n});
+const RM=matchMedia('(prefers-reduced-motion: reduce)');
+const W=800,H=460,cl=(x,a,b)=>Math.min(b,Math.max(a,x)),sm=(a,b,dt,k=8)=>a+(b-a)*(1-Math.exp(-k*dt));
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const INK='#1d1d1f',MUT='#6e6e73';
+
+/* ================= THƯ VIỆN DỤNG CỤ (Canvas, có đổ bóng & ánh kim) ================= */
+const HS=(h,s,l,a=1)=>`hsla(${h},${s}%,${l}%,${a})`;
+const T=(g,s,x,y,c=INK,z=14,al='center',w='600')=>{g.fillStyle=c;g.font=`${w} ${z}px -apple-system,'Segoe UI',system-ui,sans-serif`;g.textAlign=al;g.fillText(s,x,y)};
+const RR=(g,x,y,w,h,r,f,s,lw=2)=>{g.beginPath();g.roundRect(x,y,w,h,r);if(f){g.fillStyle=f;g.fill()}if(s){g.strokeStyle=s;g.lineWidth=lw;g.stroke()}};
+const LN=(g,x1,y1,x2,y2,c,lw=2,d)=>{g.beginPath();g.setLineDash(d||[]);g.moveTo(x1,y1);g.lineTo(x2,y2);g.strokeStyle=c;g.lineWidth=lw;g.lineCap='round';g.stroke();g.setLineDash([])};
+const AR=(g,x1,y1,x2,y2,c,lb)=>{const a=Math.atan2(y2-y1,x2-x1);if(Math.hypot(x2-x1,y2-y1)<5)return;LN(g,x1,y1,x2,y2,c,3.5);g.beginPath();g.moveTo(x2,y2);g.lineTo(x2-11*Math.cos(a-.4),y2-11*Math.sin(a-.4));g.lineTo(x2-11*Math.cos(a+.4),y2-11*Math.sin(a+.4));g.closePath();g.fillStyle=c;g.fill();if(lb)T(g,lb,x2+(x2>x1?10:x2<x1?-10:0),y2+(y2>y1?18:y2<y1?-8:5),c,14,x2>x1?'left':x2<x1?'right':'center','700')};
+const SH=(g,x,y,rx,a=.16)=>{g.save();g.translate(x,y);g.scale(1,.2);g.beginPath();g.arc(0,0,rx,0,7);g.fillStyle=`rgba(0,0,0,${a})`;g.fill();g.restore()};
+const I={
+ sphere(g,x,y,r,h=210,s=75){const k=g.createRadialGradient(x-r*.38,y-r*.42,r*.08,x,y,r*1.02);k.addColorStop(0,HS(h,s,90));k.addColorStop(.45,HS(h,s,58));k.addColorStop(1,HS(h,s,30));g.beginPath();g.arc(x,y,r,0,7);g.fillStyle=k;g.fill()},
+ cyl(g,x,y,w,hh,h=210,s=20,l=72){const rx=w/2,ry=Math.max(3,w*.13),k=g.createLinearGradient(x-rx,0,x+rx,0);k.addColorStop(0,HS(h,s,l-24));k.addColorStop(.28,HS(h,s,l+16));k.addColorStop(.7,HS(h,s,l-4));k.addColorStop(1,HS(h,s,l-32));
+  g.beginPath();g.moveTo(x-rx,y);g.lineTo(x-rx,y+hh);g.ellipse(x,y+hh,rx,ry,0,Math.PI,0,true);g.lineTo(x+rx,y);g.closePath();g.fillStyle=k;g.fill();g.beginPath();g.ellipse(x,y,rx,ry,0,0,7);g.fillStyle=HS(h,s,l+18);g.fill();g.strokeStyle=HS(h,s,l-30,.5);g.lineWidth=1;g.stroke()},
+ cone(g,x,y,w,hh,h=210,s=70,l=58){const rx=w/2,ry=Math.max(3,w*.13),k=g.createLinearGradient(x-rx,0,x+rx,0);k.addColorStop(0,HS(h,s,l-22));k.addColorStop(.35,HS(h,s,l+20));k.addColorStop(1,HS(h,s,l-30));
+  g.beginPath();g.moveTo(x,y);g.lineTo(x-rx,y+hh);g.ellipse(x,y+hh,rx,ry,0,Math.PI,0,true);g.closePath();g.fillStyle=k;g.fill()},
+ cube(g,x,y,s,h=210,sa=70,l=58){const d=s*.3,x0=x-s/2,y0=y;g.beginPath();g.rect(x0,y0,s,s);g.fillStyle=HS(h,sa,l);g.fill();g.beginPath();g.moveTo(x0,y0);g.lineTo(x0+d,y0-d);g.lineTo(x0+s+d,y0-d);g.lineTo(x0+s,y0);g.closePath();g.fillStyle=HS(h,sa,l+16);g.fill();
+  g.beginPath();g.moveTo(x0+s,y0);g.lineTo(x0+s+d,y0-d);g.lineTo(x0+s+d,y0+s-d);g.lineTo(x0+s,y0+s);g.closePath();g.fillStyle=HS(h,sa,l-16);g.fill();g.strokeStyle='rgba(0,0,0,.18)';g.lineWidth=1;g.strokeRect(x0,y0,s,s)},
+ weight(g,x,y,w,hh,label){g.beginPath();g.arc(x,y-9,9,0,7);g.strokeStyle='#8e8e93';g.lineWidth=3;g.stroke();I.cyl(g,x,y,w,hh,215,8,66);T(g,label,x,y+hh*.55+5,'#fff',13,'center','700')},
+ mcyl(g,x,y,w,hh,ml,max,col,inner){const bot=y+hh-4,k=(hh-8)/max,ly=bot-ml*k;g.beginPath();g.roundRect(x,y,w,hh,[3,3,14,14]);g.fillStyle='rgba(255,255,255,.55)';g.fill();inner&&inner();
+  const lg=g.createLinearGradient(0,ly,0,bot);lg.addColorStop(0,col.replace('A','.42'));lg.addColorStop(1,col.replace('A','.7'));g.fillStyle=lg;g.beginPath();g.roundRect(x+2,ly,w-4,bot-ly,[0,0,12,12]);g.fill();LN(g,x+2,ly,x+w-2,ly,'rgba(255,255,255,.85)',2);
+  g.beginPath();g.roundRect(x,y,w,hh,[3,3,14,14]);g.strokeStyle='#8e8e93';g.lineWidth=2.5;g.stroke();for(let m=0;m<=max;m+=50){const yy=bot-m*k,big=m%100===0;LN(g,x,yy,x+(big?16:9),yy,'#6e6e73',1.5);if(big&&m>0)T(g,m,x+w-6,yy+4,MUT,11,'right')}
+  g.beginPath();g.moveTo(x+w-10,y+6);g.lineTo(x+w-10,y+hh-20);g.strokeStyle='rgba(255,255,255,.7)';g.lineWidth=4;g.stroke();T(g,'ml',x+w-8,y-6,MUT,11,'right')},
+ fmeter(g,x,y,N,max){g.beginPath();g.arc(x,y-8,8,0,7);g.strokeStyle='#8e8e93';g.lineWidth=3;g.stroke();RR(g,x-19,y,38,112,9,'#fff','#8e8e93',2.5);RR(g,x-5,y+14,10,84,5,'#eef1f5');const sc=84/max;for(let n=0;n<=max;n+=2){const yy=y+14+n*sc,b=n%4===0;LN(g,x-5,yy,x-(b?15:10),yy,'#6e6e73',1.2);if(b)T(g,n,x-17,yy+4,MUT,10,'right')}
+  const py=y+14+cl(N,0,max)*sc;g.beginPath();g.moveTo(x+14,py);g.lineTo(x+4,py-5);g.lineTo(x+4,py+5);g.closePath();g.fillStyle='#e5484d';g.fill();LN(g,x-5,py,x+5,py,'#e5484d',2);T(g,'N',x+8,y+106,MUT,11,'left');LN(g,x,y+112,x,y+124,'#8e8e93',3);g.beginPath();g.arc(x,y+132,8,-1.2,Math.PI+1.2);g.strokeStyle='#8e8e93';g.lineWidth=3;g.stroke()},
+ bulb(g,x,y,r,b){if(b>.02){const k=g.createRadialGradient(x,y,r*.4,x,y,r*3);k.addColorStop(0,`rgba(255,214,10,${.55*b})`);k.addColorStop(1,'rgba(255,214,10,0)');g.fillStyle=k;g.fillRect(x-r*3,y-r*3,r*6,r*6)}
+  const k=g.createRadialGradient(x-r*.3,y-r*.3,r*.1,x,y,r);k.addColorStop(0,HS(50,100,95));k.addColorStop(1,HS(48,100,60+30*(1-b),.25+.7*b));g.beginPath();g.arc(x,y,r,.75*Math.PI,.25*Math.PI+Math.PI*2);g.lineTo(x+r*.45,y+r*1.25);g.lineTo(x-r*.45,y+r*1.25);g.closePath();g.fillStyle=k;g.fill();g.strokeStyle='#8e8e93';g.lineWidth=2.5;g.stroke();
+  g.beginPath();g.moveTo(x-r*.3,y+r*1.2);g.lineTo(x-r*.28,y);g.quadraticCurveTo(x-r*.1,y-r*.4,x,y);g.quadraticCurveTo(x+r*.1,y-r*.4,x+r*.28,y);g.lineTo(x+r*.3,y+r*1.2);g.strokeStyle=b>.2?'#ff9500':'#8e8e93';g.lineWidth=2.5;g.stroke();
+  RR(g,x-r*.5,y+r*1.25,r,r*.7,4,'#a1a1a6','#6e6e73',1.5);for(let i=1;i<3;i++)LN(g,x-r*.5,y+r*1.25+i*r*.23,x+r*.5,y+r*1.25+i*r*.23,'#6e6e73',1.2)},
+ battery(g,x,y,V){const w=96,h=40;SH(g,x,y+h/2+8,w/2);const k=g.createLinearGradient(0,y-h/2,0,y+h/2);k.addColorStop(0,'#5fd17a');k.addColorStop(.5,'#2fa84f');k.addColorStop(1,'#1c7a37');RR(g,x-w/2,y-h/2,w,h,9,k);RR(g,x+w/2,y-8,8,16,3,'#c7c7cc','#8e8e93',1.5);RR(g,x-w/2,y-h/2,w*.22,h,[9,0,0,9],'#2b2b30');T(g,'−',x-w/2+w*.11,y+6,'#fff',18,'center','700');T(g,'+',x+w/2-12,y+6,'#fff',18,'center','700');T(g,V,x+4,y+6,'#fff',15,'center','700')},
+ sw(g,x,y,t){SH(g,x,y+16,40);RR(g,x-40,y+4,80,14,6,'#d9d9de','#8e8e93',1.5);const a=-.6*(1-t);I.dot(g,x-26,y);I.dot(g,x+26,y);g.save();g.translate(x-26,y);g.rotate(a);RR(g,-4,-5,58,10,5,'#8e8e93');RR(g,34,-9,22,18,6,'#e5484d');g.restore()},
+ dot(g,x,y){g.beginPath();g.arc(x,y,6,0,7);g.fillStyle='#c7c7cc';g.fill();g.strokeStyle='#8e8e93';g.lineWidth=2;g.stroke()},
+ thermo(g,x,y,h,Tc,Tm=100){RR(g,x-8,y,16,h,8,'#fff','#8e8e93',2.5);const f=cl(Tc/Tm,0,1),by=y+h+10;g.beginPath();g.arc(x,by,16,0,7);g.fillStyle='#fff';g.fill();g.strokeStyle='#8e8e93';g.lineWidth=2.5;g.stroke();g.beginPath();g.arc(x,by,10,0,7);g.fillStyle='#e5484d';g.fill();RR(g,x-3,y+h*(1-f)+3,6,h*f+8,3,'#e5484d');
+  for(let i=0;i<=10;i++)LN(g,x+8,y+8+(h-16)*i/10,x+(i%5?14:20),y+8+(h-16)*i/10,'#6e6e73',1.2);T(g,F(Tc,0)+' °C',x,by+36,INK,13)},
+ boat(g,x,y,w,a){g.save();g.translate(x,y);g.rotate(a);const k=g.createLinearGradient(0,-4,0,26);k.addColorStop(0,'#fff');k.addColorStop(1,'#d2d8e2');g.beginPath();g.moveTo(-w/2,0);g.lineTo(w/2,0);g.lineTo(w/2-14,24);g.lineTo(-w/2+14,24);g.closePath();g.fillStyle=k;g.fill();g.strokeStyle='#8e8e93';g.lineWidth=2;g.stroke();RR(g,-w/2+6,-3,w-12,7,3,'#e5484d');RR(g,-14,-22,34,20,4,'#0a84ff');LN(g,22,-2,22,-52,'#6e6e73',3);g.beginPath();g.moveTo(22,-52);g.lineTo(46,-44);g.lineTo(22,-34);g.closePath();g.fillStyle='#ff9500';g.fill();g.restore()},
+ wave(g,x0,x1,y,t,amp=4,col='rgba(10,132,255,.5)',bot=H){g.beginPath();g.moveTo(x0,bot);for(let x=x0;x<=x1;x+=6)g.lineTo(x,y+Math.sin(x*.05+t*2.2)*amp);g.lineTo(x1,bot);g.closePath();g.fillStyle=col;g.fill()}
+};
+
+/* ================= LÕI KHUNG: đăng ký phân môn / chủ đề ================= */
+const Lab=window.Lab={level:'cb',subjects:[],topics:[],I,cl,sm,F,T,RR,LN,AR,SH,W,H,mounted:false,
+ subject(o){this.subjects.push(o);return this},
+ topic(o){this.topics.push(o);if(this.mounted)refresh(o.sub);return this}};
+const VW={};let cur='home';
+
+function pickTopic(vw,id){const t=Lab.topics.find(x=>x.id===id);if(!t)return;const sec=vw.sec;vw.t=t;vw.S=t.ini?t.ini():{};vw.V={};vw.key='';vw.paused=false;vw.step=0;$('.pl',sec).textContent='Tạm dừng';
+ $$('.tab',sec).forEach(b=>b.classList.toggle('on',b.dataset.id===id));$('.tt',sec).textContent=t.title;$('.eqb',sec).textContent=t.formula||'';$('.note',sec).textContent=t.note||'';
+ const ctl=$('.ctl',sec);ctl.innerHTML=t.ctl.map(c=>c[2]==='s'?`<div class="row"><label>${c[1]}</label><span></span><select data-id="${c[0]}">${c[3].map((o,i)=>`<option value="${o[1]}"${i===c[4]?' selected':''}>${o[0]}</option>`).join('')}</select></div>`:`<div class="row"><label>${c[1]}</label><output>${F(c[5])} ${c[6]}</output><input type="range" data-id="${c[0]}" min="${c[2]}" max="${c[3]}" step="${c[4]}" value="${c[5]}"></div>`).join('');
+ t.ctl.forEach(c=>{const e=$(`[data-id="${c[0]}"]`,ctl);vw.V[c[0]]=+e.value;const up=()=>{vw.V[c[0]]=+e.value;if(c[2]!=='s')e.previousElementSibling.textContent=F(e.value)+' '+c[6]};e.addEventListener('input',up);e.addEventListener('change',up)});
+ const gd=$('.gd',sec);gd.innerHTML=`<div><h5>Mục tiêu</h5><p>${esc(t.goal)}</p><h5>Hướng dẫn từng bước</h5><ol class="stp">${t.steps.map((s,i)=>`<li data-i="${i}"><b>${i+1}</b><span>${esc(s)}</span></li>`).join('')}</ol><div class="sn"><button class="btn sm" data-n="-1">Bước trước</button><button class="btn sm primary" data-n="1">Bước tiếp</button></div></div><div class="qz"><h5>Thử thách nhanh</h5><p>${esc(t.q[0])}</p><button class="btn sm" data-ans>Xem gợi ý</button><p class="ans" hidden>${esc(t.q[1])}</p></div>`;setStep(vw,0);renderTbl(vw)}
+function setStep(vw,i){const L=$$('.stp li',vw.sec);vw.step=cl(i,0,L.length-1);L.forEach((li,k)=>{li.classList.toggle('on',k===vw.step);li.classList.toggle('done',k<vw.step)})}
+function renderTbl(vw){const t=vw.t,r=vw.rows[t.id]||[],b=$('.tbl',vw.sec);b.innerHTML=r.length?`<div style="overflow-x:auto"><table><tr><th>#</th>${r[0].map(c=>`<th>${esc(c[0])}</th>`).join('')}</tr>${r.map((x,i)=>`<tr><td>${i+1}</td>${x.map(c=>`<td>${esc(c[1])}</td>`).join('')}</tr>`).join('')}</table></div>`:'<p class="hint">Chưa có số liệu. Chỉnh thí nghiệm rồi bấm “Ghi số liệu”.</p>'}
+function setv(sec,id,t){const e=$(`.ctl [data-id="${id}"]`,sec);if(!e)return;const fire=n=>e.dispatchEvent(new Event(n,{bubbles:true}));if(e.tagName!=='INPUT'||RM.matches){e.value=t;fire('input');fire('change');return}
+ t=cl(t,+e.min,+e.max);let v=+e.value,l=performance.now();const st=+e.step||1;(function f(n){const dt=Math.min(.05,(n-l)/1000);l=n;v+=(t-v)*(1-Math.exp(-12*dt));const d=Math.abs(t-v)<=st;e.value=d?t:v;fire('input');if(!d)requestAnimationFrame(f)})(l)}
+
+function refresh(sid){const vw=VW[sid];if(!vw)return;const s=vw.sub,sec=vw.sec,lv=s.noLevel?'cb':Lab.level;$$('.lseg button',sec).forEach(b=>b.classList.toggle('on',b.dataset.lv===lv));
+ const plan=(s.plan&&s.plan[lv])||[],reg=Lab.topics.filter(t=>t.sub===sid&&(s.noLevel||t.lv===lv)),names=new Set(plan);const tabs=plan.map(n=>{const t=reg.find(x=>x.title===n);return t?`<button class="tab" data-id="${t.id}">${esc(n)}</button>`:`<button class="tab" disabled>${esc(n)}<small>Sắp có</small></button>`}).concat(reg.filter(t=>!names.has(t.title)).map(t=>`<button class="tab" data-id="${t.id}">${esc(t.title)}</button>`));
+ $('.tabs',sec).innerHTML=tabs.join('');$('.tabs',sec).style.display=s.noLevel?'none':'';const has=reg.length>0;$('.work',sec).hidden=!has;$('.empty',sec).hidden=has;
+ if(has){if(!vw.t||!reg.includes(vw.t))pickTopic(vw,reg[0].id);else pickTopic(vw,vw.t.id)}else vw.t=null}
+
+function buildView(s){const sec=document.createElement('section');sec.className='view';sec.id='v-'+s.id;sec.style.setProperty('--c',s.color);
+ sec.innerHTML=`<div class="wrap"><div class="vhead"><div><span class="kicker" style="color:${s.color}">${esc(s.kicker||'')}</span><h2>${esc(s.title)}</h2><p class="lead">${esc(s.blurb||'')}</p></div>${s.noLevel?'':'<div class="seg lseg"><button data-lv="cb">Cơ bản</button><button data-lv="nc">Nâng cao</button></div>'}</div><div class="tabs"></div>
+ <div class="work"><details class="guide panel" open><summary>Hướng dẫn khám phá</summary><div class="gb gd"></div></details>
+ <div class="lab"><div class="stage panel"><div class="tools"><button class="btn primary demo">Thí nghiệm mẫu</button><button class="btn pl">Tạm dừng</button><button class="btn rs">Làm lại</button></div><canvas width="${W}" height="${H}" aria-label="Mô phỏng thí nghiệm"></canvas><p class="note"></p></div>
+ <aside class="panel side"><h3 class="tt"></h3><div class="ctl"></div><dl class="out"></dl><div class="st"></div><div class="eqb"></div><button class="btn rec">Ghi số liệu</button></aside></div>
+ <div class="panel data"><b>Bảng số liệu</b> <button class="btn sm clr" style="float:right">Xóa bảng</button><div class="tbl"></div></div></div>
+ <div class="empty panel" hidden><b>Chủ đề đang được chuẩn bị</b>Phân môn này đã có sẵn khung. Thêm chủ đề bằng Lab.topic({...}).</div></div>`;
+ document.body.insertBefore(sec,$('footer'));const cv=$('canvas',sec),vw=VW[s.id]={sec,sub:s,cv,rows:{},V:{},S:{},t:null,paused:false};setupCanvas(vw);
+ $('.lseg',sec)&&($('.lseg',sec).onclick=e=>{const b=e.target.closest('button');if(b)setLevel(b.dataset.lv)});
+ $('.tabs',sec).onclick=e=>{const b=e.target.closest('.tab:not([disabled])');if(b)pickTopic(vw,b.dataset.id)};
+ $('.pl',sec).onclick=e=>{vw.paused=!vw.paused;e.target.textContent=vw.paused?'Tiếp tục':'Tạm dừng'};$('.rs',sec).onclick=()=>{vw.S=vw.t.ini?vw.t.ini():{}};
+ $('.demo',sec).onclick=()=>{const t=vw.t;if(t.ini)vw.S=t.ini();if(t.sample)t.sample.split(',').forEach(p=>{const[i,v]=p.split('=');setv(sec,i,parseFloat(v))});t.demo&&t.demo(vw.S,vw.V);setStep(vw,Math.max(vw.step,1))};
+ $('.gd',sec).onclick=e=>{const b=e.target.closest('button'),li=e.target.closest('li');if(li)return setStep(vw,+li.dataset.i);if(!b)return;if(b.dataset.n)setStep(vw,vw.step+ +b.dataset.n);if(b.dataset.ans!==undefined){const a=$('.ans',sec);a.hidden=!a.hidden;b.textContent=a.hidden?'Xem gợi ý':'Ẩn gợi ý'}};
+ $('.rec',sec).onclick=()=>{if(!vw.out)return;const t=vw.t,row=t.ctl.map(c=>{const sel=c[2]==='s'?c[3].find(o=>o[1]===vw.V[c[0]]):null;return[c[1],sel?sel[0]:F(vw.V[c[0]])+' '+c[6]]}).concat(vw.out.o);(vw.rows[t.id]=vw.rows[t.id]||[]).push(row);renderTbl(vw)};$('.clr',sec).onclick=()=>{vw.rows[vw.t.id]=[];renderTbl(vw)};
+ const pt=(k,e)=>{const r=cv.getBoundingClientRect();vw.t&&vw.t.ptr&&vw.t.ptr(k,(e.clientX-r.left)*W/r.width,(e.clientY-r.top)*H/r.height,vw.S,vw.V)};
+ cv.addEventListener('pointerdown',e=>{cv.setPointerCapture(e.pointerId);pt('down',e)});cv.addEventListener('pointermove',e=>pt('move',e));cv.addEventListener('pointerup',e=>pt('up',e));cv.addEventListener('pointercancel',e=>pt('up',e));
+ refresh(s.id)}
+function setupCanvas(vw){const dp=Math.min(3,Math.max(1,devicePixelRatio||1)),c=vw.cv;if(c.width!==Math.round(W*dp)){c.width=Math.round(W*dp);c.height=Math.round(H*dp)}vw.g=c.getContext('2d');vw.g.setTransform(dp,0,0,dp,0,0)}
+addEventListener('resize',()=>Object.values(VW).forEach(setupCanvas));
+
+function setLevel(lv){Lab.level=lv;$$('#gseg button').forEach(b=>b.classList.toggle('on',b.dataset.lv===lv));Object.keys(VW).forEach(refresh);renderCards()}
+$('#gseg').onclick=e=>{const b=e.target.closest('button');if(b)setLevel(b.dataset.lv)};
+
+/* điều hướng */
+function show(v,push=true){if(!$('#v-'+v))v='home';cur=v;$$('.view').forEach(e=>e.classList.toggle('on',e.id==='v-'+v));$$('.nl').forEach(b=>b.classList.toggle('on',b.dataset.v===v));$('#gseg').style.visibility=(VW[v]&&VW[v].sub.noLevel)||v==='home'?'hidden':'visible';if(push)history.replaceState(null,'','#'+v);scrollTo(0,0)}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-v]');if(b)show(b.dataset.v)});addEventListener('hashchange',()=>show(location.hash.slice(1),false));
+
+const ICONS={p1:'<path d="M8 6h14v6l5 12a3 3 0 0 1-3 4H8a3 3 0 0 1-3-4l5-12V6" transform="translate(1 0)"/><path d="M9 18h14"/><circle cx="16" cy="23" r="2.4"/>',p2:'<path d="M4 24l12-10 12 10z"/><path d="M3 12l26-5" /><circle cx="7" cy="11" r="2.2"/><circle cx="25" cy="7.4" r="2.2"/>',p3:'<path d="M12 22c-3-2-5-5-5-9a9 9 0 1 1 18 0c0 4-2 7-5 9z"/><path d="M12 26h8M13 29h6M13 15l3 3 3-3"/>',p4:'<rect x="12" y="3" width="8" height="19" rx="4"/><circle cx="16" cy="24" r="5"/><path d="M16 9v15M23 8h4M23 13h4M23 18h4"/>'};
+function renderCards(){$('#cards').innerHTML=Lab.subjects.filter(s=>!s.hidden).map(s=>{const n=k=>((s.plan&&s.plan[k])||[]).length;return`<button class="card" data-v="${s.id}" style="--c:${s.color}"><div class="ic"><svg viewBox="0 0 32 32">${ICONS[s.id]||''}</svg></div><h3>${esc(s.title)}</h3><p>${esc(s.blurb)}</p><div class="chips"><span class="chip">Cơ bản · ${n('cb')} chủ đề</span><span class="chip n">Nâng cao · ${n('nc')} chủ đề</span></div></button>`}).join('')}
+
+Lab.mount=function(){this.mounted=true;$('#navl').innerHTML=['home',...this.subjects.map(s=>s.id)].map(id=>{const s=this.subjects.find(x=>x.id===id);return`<button class="nl" data-v="${id}">${id==='home'?'Trang chủ':esc(s.short||s.title)}</button>`}).join('');this.subjects.forEach(buildView);renderCards();show(location.hash.slice(1)||'home',false)};
+
+/* vòng lặp 60fps, deltaTime được kẹp */
+let last=performance.now();
+(function loop(n){const dt=Math.min(.05,Math.max(0,(n-last)/1000));last=n;const vw=VW[cur];
+ if(vw&&vw.t&&!vw.sec.querySelector('.work').hidden){vw.g.clearRect(0,0,W,H);const r=vw.t.run(vw.g,vw.V,vw.S,vw.paused?0:dt,n/1000);vw.out=r.o;const key=r.o.map(x=>x.join('')).join('|')+r.n[0];
+  if(key!==vw.key){vw.key=key;$('.out',vw.sec).innerHTML=r.o.map(([a,b])=>`<dt>${a}</dt><dd>${b}</dd>`).join('');const st=$('.st',vw.sec);st.textContent=r.n[0];st.classList.toggle('bad',!r.n[1])}}
+ requestAnimationFrame(loop)})(last);
+
+/* ================= DANH SÁCH PHÂN MÔN (lộ trình dự kiến) ================= */
+Lab.subject({id:'p1',kicker:'Phân môn 1',short:'Áp suất',color:'#0a84ff',title:'Khối lượng riêng & Áp suất',blurb:'Từ D = m/V đến áp suất chất lỏng, khí quyển và lực đẩy Archimedes.',
+ plan:{cb:['Khối lượng riêng & trọng lượng riêng','Áp suất chất rắn','Áp suất chất lỏng','Áp suất khí quyển','Lực đẩy Archimedes'],nc:['Hai chất lỏng không trộn lẫn','Bình thông nhau nhánh khác tiết diện','Vật nổi có dây treo hoặc vật đè']}});
+Lab.subject({id:'p2',kicker:'Phân môn 2',short:'Momen lực',color:'#ff9500',title:'Tác dụng làm quay của lực',blurb:'Momen lực, điều kiện cân bằng và đòn bẩy.',
+ plan:{cb:['Momen lực M = F·d','Đòn bẩy cân bằng'],nc:['Thanh có trọng lượng, trục lệch tâm','Hệ nhiều lực']}});
+Lab.subject({id:'p3',kicker:'Phân môn 3',short:'Điện',color:'#8e5cf7',title:'Điện',blurb:'Dòng điện, định luật Ôm, mạch nối tiếp, song song và công suất.',
+ plan:{cb:['Dòng điện & nguồn điện','Định luật Ôm','Nối tiếp và song song'],nc:['Mạch hỗn hợp','Công suất & năng lượng điện']}});
+Lab.subject({id:'p4',kicker:'Phân môn 4',short:'Nhiệt',color:'#e5484d',title:'Nhiệt',blurb:'Sự nở vì nhiệt, truyền nhiệt và cân bằng nhiệt.',
+ plan:{cb:['Sự nở vì nhiệt','Dẫn nhiệt, đối lưu, bức xạ'],nc:['Nhiệt lượng & cân bằng nhiệt']}});
+Lab.subject({id:'lib',kicker:'Công cụ',short:'Dụng cụ',color:'#1d1d1f',title:'Thư viện dụng cụ',blurb:'Các dụng cụ dùng chung cho mọi phân môn, vẽ bằng Canvas và chuyển động theo deltaTime.',noLevel:true,hidden:true,plan:{cb:['Dụng cụ thí nghiệm']}});
+
+/* ================= THƯ VIỆN DỤNG CỤ: trình diễn ================= */
+Lab.topic({id:'lib1',sub:'lib',lv:'cb',title:'Dụng cụ thí nghiệm',goal:'Làm quen các dụng cụ chuẩn dùng trong các phân môn.',steps:['Quan sát từng dụng cụ chuyển động độc lập','Bấm Tạm dừng để xem kỹ chi tiết đổ bóng và ánh kim'],q:['Dụng cụ nào dùng để đo thể tích vật rắn không đều?','Bình chia độ: đọc mực nước trước và sau khi nhúng vật.'],note:'Mỗi dụng cụ là một hàm trong Lab.I, có thể dùng lại ở mọi chủ đề.',sample:'',ctl:[],
+ ini:()=>({t:0}),
+ run(g,v,S,dt){S.t+=dt;const t=S.t,I=Lab.I,lab=(s,x,y)=>T(g,s,x,y,MUT,13);
+  [70,202,334,466,598,730].forEach(x=>SH(g,x,225,38));
+  I.sphere(g,70,170,42,210);lab('Hình cầu',70,258);I.cyl(g,202,100,70,110,150,35,60);lab('Hình trụ',202,258);I.cone(g,334,86,84,124,28,85,56);lab('Hình nón',334,258);I.cube(g,466,150,62,280,60,60);lab('Khối lập phương',466,258);
+  const a=.5*Math.sin(t*2.2),px=598,py=40,wx=px+110*Math.sin(a),wy=py+110*Math.cos(a);LN(g,px-30,py,px+30,py,'#6e6e73',4);LN(g,px,py,wx,wy-9,'#8e8e93',1.5);I.weight(g,wx,wy,40,46,'100 g');lab('Quả cân có móc',598,258);
+  I.thermo(g,730,40,140,50+40*Math.sin(t*.8));lab('Nhiệt kế',730,258);
+  I.bulb(g,70,330,34,.55+.45*Math.sin(t*3));lab('Bóng đèn',70,440);I.battery(g,202,330,'3 V');lab('Nguồn pin',202,440);I.sw(g,334,340,.5+.5*Math.sin(t*1.6)>.5?1:0);lab('Công tắc',334,440);
+  const ml=200+120*(.5+.5*Math.sin(t));I.mcyl(g,436,270,66,150,ml,500,'rgba(10,132,255,A)');lab('Bình chia độ',466,440);
+  const N=3+2.5*Math.sin(t*2.2);I.fmeter(g,598,270,N,10);I.weight(g,598,402,26,24,'');lab('Lực kế',598,440);
+  I.wave(g,652,792,372,t,4,'rgba(10,132,255,.45)',420);I.boat(g,722,358+Math.sin(t*2.2)*3,86,.07*Math.sin(t*2.2+1));lab('Tàu thuyền',722,440);
+  return{o:[['Số dụng cụ','12']],n:['Tất cả dụng cụ dùng chung một hệ tọa độ 800 × 460',1]}}});
+
+/* ================= THÍ NGHIỆM MẪU HOÀN CHỈNH: LỰC ĐẨY ARCHIMEDES ================= */
+const LIQ=[['Nước',1000],['Dầu ăn',800],['Nước muối',1200],['Thủy ngân',13600]];
+const CUM=[u=>u*u*(3-2*u),u=>u,u=>1-Math.pow(1-u,3),u=>u];
+const inv=(f,y)=>{let a=0,b=1;for(let i=0;i<24;i++){const m=(a+b)/2;f(m)<y?a=m:b=m}return(a+b)/2};
+const BOT=436,KML=286/500,ML0=250;
+function dims(sh,V){if(sh===0){const r=Math.cbrt(3*V/(4*Math.PI))*10;return{h:2*r,w:2*r}}if(sh===1){const d=Math.cbrt(V/1.257)*10;return{h:1.6*d,w:d}}if(sh===2){const d=Math.cbrt(V/.3927)*10;return{h:1.5*d,w:d}}const s=Math.cbrt(V)*10;return{h:s,w:s}}
+Lab.topic({id:'arch',sub:'p1',lv:'cb',title:'Lực đẩy Archimedes',formula:'F_A = d_lỏng·V chìm = 10·D_lỏng·V chìm\nSố chỉ lực kế T = P − F_A\nNổi: D vật < D lỏng · Lơ lửng: bằng · Chìm: lớn hơn',
+ goal:'Quan sát lực đẩy Archimedes tăng khi vật chìm sâu hơn và so sánh P với F_A để biết vật nổi, lơ lửng hay chìm.',
+ steps:['Kéo vật trên hình xuống từ từ vào bình chia độ','Quan sát mực nước dâng và số chỉ lực kế giảm dần','Đổi hình dạng vật và chất lỏng, so sánh F_A khi chìm hoàn toàn','Đặt khối lượng riêng của vật nhỏ hơn chất lỏng rồi thả tay, xem vật nổi lên'],
+ q:['Vật có D = 800 kg/m³ nổi trong nước thì chìm bao nhiêu phần thể tích?','80 %: khi nổi F_A = P nên V chìm / V = D vật / D lỏng.'],
+ note:'Hình minh họa không theo đúng tỉ lệ. Kéo thả vật bằng chuột hoặc cảm ứng.',sample:'liq=1000,Dv=2700,V=150,sh=0',
+ ctl:[['sh','Hình dạng vật','s',[['Hình cầu',0],['Hình trụ',1],['Hình nón',2],['Khối lập phương',3]],0],['liq','Chất lỏng','s',LIQ,0],['Dv','Khối lượng riêng vật',200,14000,100,2700,'kg/m³'],['V','Thể tích vật',50,200,10,150,'cm³']],
+ ini:()=>({yc:200,rd:0,drag:false,ty:200,demo:-1}),
+ demo(S){S.demo=0;S.drag=false},
+ ptr(k,x,y,S){if(k==='down'){S.drag=true;S.demo=-1;S.ty=y}else if(k==='move'&&S.drag)S.ty=y;else if(k==='up')S.drag=false},
+ run(g,v,S,dt,tm){const sh=v.sh|0,Dl=v.liq,Dv=v.Dv,V=v.V,d=dims(sh,V),hh=d.h,cum=CUM[sh],top=162+hh/2,bot=BOT-4-hh/2,P=Dv*V*1e-5,Pm=Math.max(P,.05);
+  const surf=yb=>{let ys=BOT-ML0*KML;for(let i=0;i<8;i++){const u=cl((yb-ys)/hh,0,1),ml=Math.min(500,ML0+V*cum(u));ys=BOT-ml*KML}return ys};
+  if(S.demo>=0){S.demo+=dt;const p=S.demo/9;S.ty=top+(bot-top)*(1-Math.cos(Math.min(1,p)*2*Math.PI))/2;if(p>=1)S.demo=-1}
+  if(!S.drag&&S.demo<0&&Dv<Dl){const f=inv(cum,Dv/Dl);let yb=BOT-ML0*KML;for(let i=0;i<10;i++){const ys=surf(yb);yb=ys+f*hh}S.ty=yb-hh/2}
+  S.ty=cl(S.ty,top,bot);S.yc=sm(S.yc,S.ty,dt,RM.matches?60:12);const yb=S.yc+hh/2,ys=surf(yb),u=cl((yb-ys)/hh,0,1),vs=V*cum(u),ml=Math.min(500,ML0+vs),FA=Dl*10*vs*1e-6,Tn=Math.max(0,P-FA);S.rd=sm(S.rd,Tn,dt,10);
+  RR(g,0,BOT+4,W,H-BOT-4,0,'#e4e7ec');LN(g,0,BOT+4,W,BOT+4,'#c7c7cc',2);SH(g,300,BOT+4,110);
+  I.fmeter(g,300,10,S.rd,20);LN(g,300,150,300,S.yc-hh/2-(sh===3?0:0),'#8e8e93',1.5);
+  const k=Math.min(1,Dv/9000),hue=210-k*185,x=300,yt=S.yc-hh/2;
+  I.mcyl(g,220,150,160,290,ml,500,Dl>5000?'rgba(150,160,175,A)':Dl>1100?'rgba(52,199,89,A)':Dl<900?'rgba(255,204,0,A)':'rgba(10,132,255,A)',()=>{sh===0?I.sphere(g,x,S.yc,hh/2,hue):sh===1?I.cyl(g,x,yt,d.w,hh,hue,60,58):sh===2?I.cone(g,x,yt,d.w,hh,hue,70,56):I.cube(g,x,yt,hh,hue,60,58)});
+  const sc=Math.min(24,95/Pm),ox=d.w/2+(sh===3?hh*.3:0)+16;AR(g,x-ox,S.yc,x-ox,S.yc+P*sc,'#e5484d','P');if(FA*sc>5)AR(g,x+ox,S.yc,x+ox,S.yc-FA*sc,'#0a84ff','F_A');
+  const bx=470,bw=260,mx=Math.max(P,FA,.1);T(g,'So sánh các lực',bx,120,INK,16,'left','700');[['P',P,'#e5484d'],['F_A',FA,'#0a84ff'],['Số chỉ T',Tn,'#1d8a3e']].forEach(([n,val,c],i)=>{const y=150+i*56;T(g,n,bx,y,MUT,14,'left');RR(g,bx,y+8,bw,16,8,'#e8e8ed');RR(g,bx,y+8,Math.max(0,bw*val/mx),16,8,c);T(g,F(val,2)+' N',bx+bw,y,INK,14,'right','700')});
+  T(g,'Kéo vật lên xuống để thay đổi độ chìm',bx,360,MUT,14,'left');if(ML0+V*cum(u)>500)T(g,'Nước tràn ra khỏi bình',bx,384,'#c92a2a',14,'left','700');
+  const st=Math.abs(Dv-Dl)<1?'Lơ lửng: D vật = D lỏng':Dv<Dl?'Nổi: D vật < D lỏng, F_A lớn nhất vẫn lớn hơn P':'Chìm: D vật > D lỏng, F_A < P';
+  return{o:[['Trọng lượng P',F(P,2)+' N'],['Lực đẩy F_A',F(FA,2)+' N'],['Số chỉ lực kế T',F(Tn,2)+' N'],['Thể tích chìm',F(vs,0)+' cm³'],['Mực nước',F(ml,0)+' ml']],n:[st,1]}}});
+
+/* ===== LẮP GHÉP: thêm phân môn tiếp theo bằng Lab.topic({sub:'p2',lv:'cb',id,title,...}) rồi gọi trước Lab.mount() ===== */
+Lab.mount();
+})();
+</script></body></html>
